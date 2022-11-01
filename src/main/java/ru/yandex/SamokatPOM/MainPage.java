@@ -10,6 +10,9 @@ import java.time.Duration;
 
 public class MainPage {
     private WebDriver driver;
+
+    private By buttonUp = By.cssSelector(".Header_Nav__AGCXC .Button_Button__ra12g");
+    private By buttonDown = By.cssSelector(".Home_FinishButton__1_cWm .Button_Button__ra12g");
     private final String url = "https://qa-scooter.praktikum-services.ru/";  //Адрес сайта
 
     public MainPage(WebDriver driver) {
@@ -20,10 +23,13 @@ public class MainPage {
         driver.get(url);
     }
 
-    public void clickButton(String locator) {
-        WebElement element = driver.findElement(By.cssSelector(locator));
+    public void clickButtonUp() {
+        driver.findElement(buttonUp).click();
+    }
+    public void clickButtonDown() {
+        WebElement element = driver.findElement(buttonDown);
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
-        driver.findElement(By.cssSelector(locator)).click();
+        driver.findElement(buttonDown).click();
     }
     public String getTextAccordion(int num) {
         String accordionHeading_id = "accordion__heading-" + num; //Локатор "вопрос о важном"

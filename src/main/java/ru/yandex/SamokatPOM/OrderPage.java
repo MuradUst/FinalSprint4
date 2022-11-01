@@ -51,6 +51,24 @@ public class OrderPage {
         driver.findElement(comment).sendKeys(commentText);
         driver.findElement(rent).click();
     }
+
+    public void sendLoginSecondVersion(String nameText, String surnameText, String addressText, String metrostationText, String telephoneNumber, String commentText) {
+        driver.findElement(name).sendKeys(nameText);
+        driver.findElement(surname).sendKeys(surnameText);
+        driver.findElement(address).sendKeys(addressText);
+        driver.findElement(metrostation).click();
+        driver.findElement(metrostation1).sendKeys(metrostationText);
+        driver.findElement(metroValueInput).click();
+        driver.findElement(telephone).sendKeys(telephoneNumber);
+        driver.findElement(next).click();
+        driver.findElement(date).click();
+        driver.findElement(date2).click();
+        driver.findElement(time).click();
+        driver.findElement(time2).click();
+        driver.findElement(colourGrey).click();
+        driver.findElement(comment).sendKeys(commentText);
+        driver.findElement(rent).click();
+    }
     public void sendApproveForRentScooter() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(driver -> driver.findElement(approve)).click();
